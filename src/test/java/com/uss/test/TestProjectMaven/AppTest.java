@@ -1,6 +1,8 @@
 package com.uss.test.TestProjectMaven;
 
-
+/**
+ * BUSRA KARAGOZ
+ */
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertEquals;
