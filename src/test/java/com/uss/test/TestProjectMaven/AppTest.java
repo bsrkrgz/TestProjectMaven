@@ -51,6 +51,8 @@ public class AppTest {
     driver.findElement(By.id("password")).clear();
     driver.findElement(By.id("password")).sendKeys("bus1234bus");
     driver.findElement(By.id("loginButton")).click();
+    
+    assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*busra karagöz[\\s\\S]*$"));
     driver.findElement(By.id("searchData")).click();
     driver.findElement(By.id("searchData")).clear();
     driver.findElement(By.id("searchData")).sendKeys("samsung");
@@ -59,12 +61,25 @@ public class AppTest {
     assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*sonuç bulundu[\\s\\S]*$"));
     driver.findElement(By.linkText("2")).click();
     assertEquals("2", driver.findElement(By.name("currentPage")).getAttribute("value"));
-    driver.findElement(By.cssSelector("#p-37013121 > div.pro > a.plink > img.lazy")).click();
-    driver.findElement(By.linkText("Sepete Ekle")).click();
+    driver.findElement(By.cssSelector("#p-38711636 > div.pro > a.plink > img.lazy")).click();
+    
+    driver.findElement(By.id("addToFavourites")).click();
+    assertEquals("", driver.findElement(By.id("addToFavourites")).getText());
+    driver.findElement(By.linkText("Favorilerim")).click();
+    driver.findElement(By.name("itemSelected")).click();
+    driver.findElement(By.id("removeSelectedProducts")).click();
+    
+    /*driver.findElement(By.linkText("Sepete Ekle")).click();
     driver.findElement(By.cssSelector("a.myBasket")).click();
     driver.findElement(By.linkText("Sil")).click();
-    assertThat("Samsung ", is(not(driver.findElement(By.cssSelector("h4")).getText())));
+    assertThat("Samsung ", is(not(driver.findElement(By.cssSelector("h4")).getText())));*/
     driver.get("http://www.n11.com/");
+    
+    
+    
+   
+    
+    
   }
 
   @After
